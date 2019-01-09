@@ -1,0 +1,26 @@
+CAJA                           ADMINISTRADOR
+NUMERO CIERRE            16
+FECHA EMISIÓN         12/28/2018
+FACTURA INICIAL F      19
+FACTURA FINAL F        6112
+VENTAS                       MONTO
+----------------------------------
+VENTAS CONTADO      ₡632,000.00
+VENTAS TARJETA          ₡0.00
+ENTRADA CAJA             ₡0.00
+SALIDA CAJA                 ₡0
+TOTAL CAJA                  ₡0
+FONDO CAJA                ₡0
+POR ENTREGAR            ₡632,000.00
+
+NOTAS
+
+________________________________________
+
+________________________________________
+
+FIRMA CAJERO           FIRMA ADMIN
+
+________________       _________________
+
+Impreso el 1/9/2019 2:45:32 PM

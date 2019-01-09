@@ -1,0 +1,51 @@
+               Central Veterinaria S.A
+               3101081437
+          SAN JOSE
+          SAN JOSE
+               25736037
+    Fecha:     1/9/2019 1:59:37 PM
+                      No.Factura:
+             00200001040000000979
+                        Clave:
+5060901190031026714690020
+0001040000000979184547792
+                Comprobante: 139
+Tipo de Comprobante:
+Tiquete Electrónico
+        Tipo de pago : Efectivo
+          Facturado por: admin
+Cliente:
+Contado
+-----------------------------------------------
+Cantidad           Precio
+               Artículo
+-----------------------------------------------
+
+      1                        ₡5000
+Tinte Cejas
+         (0%)  Descuento =   ₡0.00
+      1                        ₡2000
+Lavado de Cabello
+         (0%)  Descuento =   ₡0.00
+      1                        ₡2500
+Lav. Champ Keratina
+         (0%)  Descuento =   ₡0.00
+      1                        ₡10500
+Corte, Blower y Plancha
+         (0%)  Descuento =   ₡0.00
+         (E)=Exento            (G)=Gravado
+ARTICULOS=                      4
+SUBTOTAL=                      ₡20,000.00
+I.V.A.=                               ₡0.00
+DESCUENTO=                   ₡0.00
+TOTAL=                             ₡20,000.00
+------------------------------MONTO-------------
+PAGA CON:                        ₡3,456,436,546
+VUELTO=                           ₡-3,456,416,546.00
+           ARTICULOS CON I.V.I.
+           VENDEDOR : VENDEDOR
+----Autorizada mediante resolución--------
+---------N° DGT‐R‐48‐2016 del 07---------
+----------de octubre de 2016.---------------
+----------¡Gracias por su compra!--------------
+********Esperamos servirle de nuevo ************
