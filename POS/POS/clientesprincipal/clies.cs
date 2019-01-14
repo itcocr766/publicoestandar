@@ -33,7 +33,7 @@ namespace POS.clientesprincipal
                 {
                     mysql.conexion();
                     DataTable dtDatos = new DataTable();
-                    string query = "select * from clientes";
+                    string query = "select * from clientes where Estado='1'";
                     MySqlDataAdapter mdaDatos = new MySqlDataAdapter(query, mysql.con);
                     mdaDatos.Fill(dtDatos);
                     dataGridView1.DataSource = dtDatos;
@@ -60,7 +60,7 @@ namespace POS.clientesprincipal
                 {
                     mysql.conexion();
                     DataTable dtDatos = new DataTable();
-                    string query = "select * from clientes where Nombre like '" + textBox1.Text + "%'";
+                    string query = "select * from clientes where Nombre like '" + textBox1.Text + "%' and Estado='1'";
                     MySqlDataAdapter mdaDatos = new MySqlDataAdapter(query, mysql.con);
                     mdaDatos.Fill(dtDatos);
                     dataGridView1.DataSource = dtDatos;

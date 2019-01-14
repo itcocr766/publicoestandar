@@ -58,19 +58,13 @@ namespace POS.clientes
                 using (var mysql=new Mysql())
                 {
                     mysql.conexion();
-                    mysql.cadenasql = "insert into clientes(Cedula,Nombre,Telefono,Correo,Direccion)values('" + Int32.Parse(textBox5.Text.Trim()) + "','" + textBox1.Text.ToUpper().Trim() + "','" + textBox3.Text.ToUpper().Trim() + "','" + textBox2.Text.ToUpper().Trim() + "','" + textBox4.Text.ToUpper().Trim() + "')";
+                    mysql.cadenasql = "insert into clientes(Cedula,Nombre,Telefono,Correo,Direccion,Estado)values('" + Int32.Parse(textBox5.Text.Trim()) + "','" + textBox1.Text.ToUpper().Trim() + "','" + textBox3.Text.ToUpper().Trim() + "','" + textBox2.Text.ToUpper().Trim() + "','" + textBox4.Text.ToUpper().Trim() + "','1')";
                     mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
                     mysql.comando.ExecuteNonQuery();
                     mysql.Dispose();
                     Errores.inf();
                 }
 
-
-
-                 
-
-                    
-                
 
             }
             catch (Exception guardarcliente)

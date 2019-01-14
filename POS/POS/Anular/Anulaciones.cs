@@ -7,6 +7,7 @@ using POS.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -252,9 +253,7 @@ namespace POS
 
                                     FE f = new FE()
                                     {
-                                        //CompanyAPI = "45e7a866-381b-4a1a-81c7-47cdfee2f620"
-                                        //CompanyAPI = "5419ed5c-7c67-49bf-9009-a03dfcacbe27"
-                                        CompanyAPI = "749ad71a-8e08-48b4-a5c1-6a5de55b677f"
+                                        CompanyAPI = ConfigurationManager.AppSettings["apicomp"]
 
                                     };
 
@@ -262,7 +261,7 @@ namespace POS
 
                                     f.Key = new KEY()
                                     {
-                                        Branch = "001",
+                                        Branch = ConfigurationManager.AppSettings["sucu"],
                                         Terminal = "001",
                                         Type = "03",
                                         Voucher = string.Concat( "14", (Int64.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString())).ToString()),

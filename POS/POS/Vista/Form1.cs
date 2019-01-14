@@ -362,7 +362,7 @@ namespace POS
 
                     f.Key = new KEY()
                     {
-                        Branch = "002",
+                        Branch = ConfigurationManager.AppSettings["sucu"],
                         Terminal = "001",
                         Type = type,
                         Voucher = numeroRecibido,
@@ -2850,7 +2850,7 @@ namespace POS
                             using (var mysql=new Mysql())
                             {
                                 mysql.conexion();
-                                mysql.cadenasql = "SELECT * FROM `clientes` WHERE Cedula='"+comboBox3.Text.Trim()+"'";
+                                mysql.cadenasql = "SELECT * FROM `clientes` WHERE Cedula='"+comboBox3.Text.Trim()+"' and Estado='1'";
                                 mysql.comando =new MySqlCommand(mysql.cadenasql,mysql.con);
                                 mysql.lector = mysql.comando.ExecuteReader();
                                 if (mysql.lector.Read())

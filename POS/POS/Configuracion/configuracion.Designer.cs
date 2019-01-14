@@ -52,10 +52,13 @@
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -296,6 +299,25 @@
             this.label10.TabIndex = 5;
             this.label10.Text = "Razón Social";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(643, 55);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(70, 13);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "Razón Social";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(659, 208);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(171, 35);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "Aplicar configuración";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -313,35 +335,45 @@
             this.comboBox2.Items.AddRange(new object[] {
             "http://104.43.136.13:8080/api/invoice/",
             "http://localhost:8080/api/invoice/"});
-            this.comboBox2.Location = new System.Drawing.Point(646, 120);
+            this.comboBox2.Location = new System.Drawing.Point(646, 129);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(203, 21);
             this.comboBox2.TabIndex = 14;
             // 
-            // label11
+            // label12
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(643, 55);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 13);
-            this.label11.TabIndex = 15;
-            this.label11.Text = "Razón Social";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(646, 173);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(48, 13);
+            this.label12.TabIndex = 28;
+            this.label12.Text = "Sucursal";
             // 
-            // button3
+            // textBox11
             // 
-            this.button3.Location = new System.Drawing.Point(646, 173);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(171, 35);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Aplicar configuración";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.textBox11.Location = new System.Drawing.Point(701, 166);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(71, 20);
+            this.textBox11.TabIndex = 27;
+            this.textBox11.Text = "001";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(643, 113);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(49, 13);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "Endpoint";
             // 
             // configuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 394);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.textBox11);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.comboBox2);
@@ -387,9 +419,12 @@
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.Label label13;
     }
 }

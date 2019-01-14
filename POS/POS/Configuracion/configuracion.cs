@@ -18,6 +18,7 @@ namespace POS.Configuracion
         string apicomp = "";
         string endpo = "";
         string autoincrement="";
+        string sucu = "";
         public configuracion()
         {
             InitializeComponent();
@@ -87,9 +88,10 @@ namespace POS.Configuracion
 
             companyapi();
             endopo();
+            sucurs();
             MessageBox.Show("Configuración exitosa. Verifique la cadena de conexión  " + 
                 ConfigurationManager.AppSettings["apicomp"] +"\n"+
-                 ConfigurationManager.AppSettings["endpo"]);
+                 ConfigurationManager.AppSettings["endpo"]+"\n" + ConfigurationManager.AppSettings["sucu"]);
         }
 
         public void companyapi()
@@ -104,7 +106,19 @@ namespace POS.Configuracion
             ConfigurationManager.RefreshSection("appSettings");
 
         }
-      
+        public void sucurs()
+        {
+            sucu = textBox11.Text;
+            Configuration conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            conf.AppSettings.Settings.Remove("sucu");
+            conf.Save(ConfigurationSaveMode.Full);
+            ConfigurationManager.RefreshSection("appSettings");
+            conf.AppSettings.Settings.Add("sucu", sucu);
+            conf.Save(ConfigurationSaveMode.Full);
+            ConfigurationManager.RefreshSection("appSettings");
+
+        }
+
         public void endopo()
         {
             endpo = comboBox2.Text;

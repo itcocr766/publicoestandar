@@ -14,7 +14,7 @@ namespace POS.clientesprincipal
 {
     public partial class climod : Form
     {
-       
+        string estado = "";
         public climod()
         {
             InitializeComponent();
@@ -22,6 +22,7 @@ namespace POS.clientesprincipal
        
         private void climod_Load(object sender, EventArgs e)
         {
+            comboBox1.SelectedIndex = 0;
             cargar();
         }
 
@@ -35,7 +36,7 @@ namespace POS.clientesprincipal
                 {
                     mysql.conexion();
                     DataTable dtDatos = new DataTable();
-                    string query = "select Cedula from clientes where Cedula<>'0'";
+                    string query = "select Cedula from clientes where Cedula<>'0' and Estado='1'";
                     MySqlDataAdapter mdaDatos = new MySqlDataAdapter(query, mysql.con);
                     mdaDatos.Fill(dtDatos);
                     dataGridView1.DataSource = dtDatos;
@@ -67,7 +68,7 @@ namespace POS.clientesprincipal
                 {
                     mysql.conexion();
                     DataTable dtDatos = new DataTable();
-                    string query = "select * from clientes where Cedula like '" + cedula.Text + "%'";
+                    string query = "select * from clientes where Cedula like '" + cedula.Text + "%' and Estado='1'";
                     MySqlDataAdapter mdaDatos = new MySqlDataAdapter(query, mysql.con);
                     mdaDatos.Fill(dtDatos);
                     dataGridView1.DataSource = dtDatos;
@@ -93,7 +94,7 @@ namespace POS.clientesprincipal
                 using (var mysql = new Mysql())
                 {
                     mysql.conexion();
-                    mysql.cadenasql = "select * from clientes where Cedula='" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'";
+                    mysql.cadenasql = "select * from clientes where Cedula='" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Estado='1'";
                     mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
                     mysql.lector = mysql.comando.ExecuteReader();
                     while (mysql.lector.Read())
@@ -127,7 +128,7 @@ namespace POS.clientesprincipal
                 {
                     mysql.conexion();
                     DataTable dtDatos = new DataTable();
-                    string query = "select Cedula from clientes where Cedula like '" + cedula.Text + "%'";
+                    string query = "select Cedula from clientes where Cedula like '" + cedula.Text + "%' and Estado='1'";
                     MySqlDataAdapter mdaDatos = new MySqlDataAdapter(query, mysql.con);
                     mdaDatos.Fill(dtDatos);
                     dataGridView1.DataSource = dtDatos;
@@ -148,8 +149,18 @@ namespace POS.clientesprincipal
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             try
             {
+
+                if (comboBox1.Text=="Activo")
+                {
+                    estado = "1";
+                }
+                else
+                {
+                    estado = "0";
+                }
                 if (!string.IsNullOrEmpty(dataGridView1.CurrentRow.Cells[0].Value.ToString()) &&
                     !string.IsNullOrEmpty(telefono.Text) && !string.IsNullOrEmpty(correo.Text)&& !string.IsNullOrEmpty(direccion.Text))
                 {
@@ -158,7 +169,7 @@ namespace POS.clientesprincipal
                         mysql.conexion();
                         mysql.cadenasql = "update clientes set Telefono='" + telefono.Text.Trim() + "'" +
                             ",Correo='" + correo.Text.Trim() + "',Direccion='" + direccion.Text.Trim() +
-                            "' where Cedula='" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'";
+                            "',Estado='"+estado+"' where Cedula='" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Estado='1'";
                         mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
                         mysql.comando.ExecuteNonQuery();
                         mysql.Dispose();
@@ -186,7 +197,7 @@ namespace POS.clientesprincipal
                 using (var mysql = new Mysql())
                 {
                     mysql.conexion();
-                    mysql.cadenasql = "select * from clientes where Cedula='" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'";
+                    mysql.cadenasql = "select * from clientes where Cedula='" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Estado='1'";
                     mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
                     mysql.lector = mysql.comando.ExecuteReader();
                     while (mysql.lector.Read())
@@ -221,7 +232,7 @@ namespace POS.clientesprincipal
                     using (var mysql = new Mysql())
                     {
                         mysql.conexion();
-                        mysql.cadenasql = "select * from clientes where Cedula='" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'";
+                        mysql.cadenasql = "select * from clientes where Cedula='" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Estado='1'";
                         mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
                         mysql.lector = mysql.comando.ExecuteReader();
                         while (mysql.lector.Read())

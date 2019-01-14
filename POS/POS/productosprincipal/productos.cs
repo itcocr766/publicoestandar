@@ -100,29 +100,7 @@ namespace POS.Vista
 
         private void textBox4_KeyDown(object sender, KeyEventArgs e)
         {
-            try
-            {
-                using (var mysql = new Mysql())
-                {
-                    mysql.conexion();
-                    DataTable dtDatos = new DataTable();
-                    string query = "select * from items where Barcode like '" + textBox4.Text + "%'";
-                    MySqlDataAdapter mdaDatos = new MySqlDataAdapter(query, mysql.con);
-                    mdaDatos.Fill(dtDatos);
-                    dataGridView1.DataSource = dtDatos;
-                    mysql.Dispose();
-
-                }
-
-
-            }
-            catch (Exception euju)
-            {
-
-                Mensaje.Error(euju, "71");
-
-
-            }
+           
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)
@@ -200,6 +178,33 @@ namespace POS.Vista
         private void productos_Click(object sender, EventArgs e)
         {
             Activate();
+        }
+
+        private void textBox4_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                using (var mysql = new Mysql())
+                {
+                    mysql.conexion();
+                    DataTable dtDatos = new DataTable();
+                    string query = "select * from items where Codigo like '" + textBox4.Text + "%'";
+                    MySqlDataAdapter mdaDatos = new MySqlDataAdapter(query, mysql.con);
+                    mdaDatos.Fill(dtDatos);
+                    dataGridView1.DataSource = dtDatos;
+                    mysql.Dispose();
+
+                }
+
+
+            }
+            catch (Exception euju)
+            {
+
+                Mensaje.Error(euju, "71");
+
+
+            }
         }
     }
 }
