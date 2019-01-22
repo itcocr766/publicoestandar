@@ -190,7 +190,7 @@ namespace POS.productosprincipal
                             if (!string.IsNullOrEmpty(dataGridView1.CurrentRow.Cells[0].Value.ToString()))
                             {
                                 mysql.cadenasql = "update items set Descripcion='" + descripcion.Text.Trim() + "'" +
-                               ",Impuesto='" + impuesto.Text.Trim() + "',Cantidad='" + double.Parse(textBox1.Text).ToString("0.00", CultureInfo.InvariantCulture) + "',Precio='" + double.Parse(textBox2.Text).ToString("0.00", CultureInfo.InvariantCulture) + "',Categoria='" + textBox3.Text + "'  where Codigo='" + dataGridView1.CurrentRow.Cells[0].Value + "'";
+                               ",Impuesto='" + impuesto.Text.Trim() + "',Cantidad='" + double.Parse(textBox1.Text).ToString("0.00000000", CultureInfo.InvariantCulture) + "',Precio='" + double.Parse(textBox2.Text).ToString("0.00000000", CultureInfo.InvariantCulture) + "',Categoria='" + textBox3.Text + "'  where Codigo='" + dataGridView1.CurrentRow.Cells[0].Value + "'";
 
                             }
                            

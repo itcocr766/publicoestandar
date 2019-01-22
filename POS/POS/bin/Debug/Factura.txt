@@ -3,13 +3,13 @@
           SAN JOSE
           SAN JOSE
                25736037
-    Fecha:     1/9/2019 1:59:37 PM
+    Fecha:     1/22/2019 9:59:31 AM
                       No.Factura:
-             00200001040000000979
+             00400001040000000994
                         Clave:
-5060901190031026714690020
-0001040000000979184547792
-                Comprobante: 139
+5062201190031026714690040
+0001040000000994171246031
+                Comprobante: 0
 Tipo de Comprobante:
 Tiquete Electrónico
         Tipo de pago : Efectivo
@@ -22,26 +22,35 @@ Cantidad           Precio
 -----------------------------------------------
 
       1                        ₡5000
-Tinte Cejas
+Blower y Plancha
          (0%)  Descuento =   ₡0.00
-      1                        ₡2000
-Lavado de Cabello
-         (0%)  Descuento =   ₡0.00
-      1                        ₡2500
-Lav. Champ Keratina
-         (0%)  Descuento =   ₡0.00
-      1                        ₡10500
+      1                        ₡7500
 Corte, Blower y Plancha
          (0%)  Descuento =   ₡0.00
+      1                        ₡2000
+Dep. Bigote
+         (0%)  Descuento =   ₡0.00
+      1                        ₡8500
+Corte, Blower y Plancha
+         (0%)  Descuento =   ₡0.00
+      1                        ₡3000
+Disminucion Barba
+         (0%)  Descuento =   ₡0.00
+      1                        ₡2000
+Disminucion Barba
+         (0%)  Descuento =   ₡0.00
+      1                        ₡3500
+Disminucion Barba
+         (0%)  Descuento =   ₡0.00
          (E)=Exento            (G)=Gravado
-ARTICULOS=                      4
-SUBTOTAL=                      ₡20,000.00
-I.V.A.=                               ₡0.00
+ARTICULOS=                      7
+SUBTOTAL=                      ₡30,522.12
+I.V.A.=                               ₡977.88
 DESCUENTO=                   ₡0.00
-TOTAL=                             ₡20,000.00
+TOTAL=                             ₡31,500.00
 ------------------------------MONTO-------------
-PAGA CON:                        ₡3,456,436,546
-VUELTO=                           ₡-3,456,416,546.00
+PAGA CON:                        ₡7,893,474,394
+VUELTO=                           ₡-7,893,442,894.00
            ARTICULOS CON I.V.I.
            VENDEDOR : VENDEDOR
 ----Autorizada mediante resolución--------

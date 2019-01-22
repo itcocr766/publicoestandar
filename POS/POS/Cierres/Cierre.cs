@@ -190,54 +190,7 @@ namespace POS.Cierres
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //sumatoria = 0;
            
-            //try
-            //{
-            //    if (!string.IsNullOrEmpty(textBox2.Text)  &&
-            //        !string.IsNullOrEmpty(textBox5.Text) && !string.IsNullOrEmpty(textBox13.Text) && !string.IsNullOrEmpty(textBox14.Text))
-            //    {
-            //        sumatoria += (double.Parse(textBox2.Text) +double.Parse(textBox5.Text));
-            //        textBox7.Text = string.Format("{0:N2}", (double.Parse(textBox13.Text) + double.Parse(textBox14.Text)));
-            //        textBox6.Text = string.Format("{0:N2}", (sumatoria));
-            //    }
-            //    else
-            //    {
-
-            //       DialogResult result= MessageBox.Show("No ha ingresado un fondo de caja." +
-            //           "Desea que el programa calcule el cierre con un monto de cien mil colones como fondo?\n" +
-            //           "Presione 'No' para salir y digitar un fondo de caja.","Faltan datos",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            //        if (result == DialogResult.Yes)
-            //        {
-            //            if (!string.IsNullOrEmpty(textBox2.Text)   &&
-            //                 !string.IsNullOrEmpty(textBox13.Text) && !string.IsNullOrEmpty(textBox14.Text))
-            //            {
-                            
-                         
-            //                sumatoria += (double.Parse(textBox2.Text) );
-            //                textBox7.Text = string.Format("{0:N2}", (double.Parse(textBox13.Text) + double.Parse(textBox14.Text)));
-            //                textBox5.Text = "100000.00";
-            //                textBox6.Text = string.Format("{0:N2}",sumatoria);
-            //            }
-            //            else if (string.IsNullOrEmpty(textBox2.Text) 
-            //                || string.IsNullOrEmpty(textBox13.Text) || string.IsNullOrEmpty(textBox14.Text))
-            //            {
-            //                MessageBox.Show("No ha ingresado valores suficientes para realizar el cierre", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-            //            }
-                     
-
-            //        }
-                   
-            //    }
-                
-
-            //}
-            //catch (Exception errf)
-            //{
-
-            //    MessageBox.Show("Hubo un error a conectar a la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
         }
 
     
@@ -288,11 +241,11 @@ namespace POS.Cierres
                             "'" + inicialf + "'," +
                             "'" + finalf + "'," +
                           
-                            "'" + double.Parse(textBox13.Text).ToString("0.00",CultureInfo.InvariantCulture) + "'," +
+                            "'" + double.Parse(textBox13.Text).ToString("0.00000000",CultureInfo.InvariantCulture) + "'," +
 
-                            "'"+ double.Parse(textBox5.Text).ToString("0.00", CultureInfo.InvariantCulture) + "'" +
-                            ",'"+ double.Parse(textBox14.Text).ToString("0.00", CultureInfo.InvariantCulture) + "'," +
-                            "'"+ (double.Parse(textBox13.Text)+ double.Parse(textBox14.Text)).ToString("0.00", CultureInfo.InvariantCulture) + "')";
+                            "'"+ double.Parse(textBox5.Text).ToString("0.00000000", CultureInfo.InvariantCulture) + "'" +
+                            ",'"+ double.Parse(textBox14.Text).ToString("0.00000000", CultureInfo.InvariantCulture) + "'," +
+                            "'"+ (double.Parse(textBox13.Text)+ double.Parse(textBox14.Text)).ToString("0.00000000", CultureInfo.InvariantCulture) + "')";
                         mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
                         mysql.comando.ExecuteNonQuery();
 

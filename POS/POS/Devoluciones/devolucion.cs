@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -309,7 +310,7 @@ namespace POS.Devoluciones
                             mysql.comando.ExecuteNonQuery();
                         }
 
-                        mysql.cadenasql = "INSERT INTO `notascredito`(`Cliente`, `Monto`, `Detalle`, `Descuento`) VALUES ('" +Int32.Parse(textBox3.Text) + "','" +double.Parse(textBox1.Text) + "','" + richTextBox1.Text + "','" + desc + "')";
+                        mysql.cadenasql = "INSERT INTO `notascredito`(`Cliente`, `Monto`, `Detalle`, `Descuento`) VALUES ('" +Int32.Parse(textBox3.Text) + "','" +double.Parse(textBox1.Text).ToString("0.00000000", CultureInfo.InvariantCulture) + "','" + richTextBox1.Text + "','" + desc + "')";
                         mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
                         mysql.comando.ExecuteNonQuery();
 
@@ -319,15 +320,7 @@ namespace POS.Devoluciones
                     }
 
 
-                    //using (var mysql2=new Mysql())
-                    //{
-                    //    mysql2.conexion();
-                    //    mysql2.cadenasql = "update item set OnHand='"++"'";
-                    //    mysql2.comando = new MySqlCommand(mysql2.cadenasql,mysql2.con);
-                    //    mysql2.comando.ExecuteNonQuery();
-
-                    //    mysql2.Dispose();
-                    //}
+                
 
                         imprim = true;
                 }
@@ -397,46 +390,7 @@ namespace POS.Devoluciones
                     textBox1.Text = "0";
                 }
 
-                //if (dataGridView1.CurrentCell == dataGridView1.CurrentRow.Cells[6]&& dataGridView1.CurrentRow.Cells[6].Value.ToString() == "1")
-                //{
-                //    textBox5.Text =string.Format("{0:N2}", double.Parse(textBox5.Text)+ double.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString()));
-                //    textBox6.Text = string.Format("{0:N2}",((double.Parse(textBox6.Text) + (double.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString()) * double.Parse(dataGridView1.CurrentRow.Cells[6].Value.ToString())))/1.13));
-                //    textBox1.Text = string.Format("{0:N2}", (double.Parse(textBox1.Text) + double.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString()) * double.Parse(dataGridView1.CurrentRow.Cells[6].Value.ToString())).ToString());
-
-                //    conta+=1;
-                    
-                //}
-                //else if (dataGridView1.CurrentCell == dataGridView1.CurrentRow.Cells[6] && dataGridView1.CurrentRow.Cells[6].Value.ToString() == "0")
-                //{
-                  
-                    
-                //     datdouble = double.Parse(textBox1.Text);
-                //     pre = double.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
-                //     devu = 1.0;
-                //     resu = datdouble - (pre * devu);
-                  
-                //    textBox1.Text = "";
-                //    textBox1.Text = resu.ToString();
-
-
-                //    textBox5.Text = string.Format("{0:N2}",double.Parse(textBox5.Text)- double.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString()));
-                //    textBox6.Text = string.Format("{0:N2}", ((double.Parse(textBox6.Text) - (double.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString()) * double.Parse(dataGridView1.CurrentRow.Cells[6].Value.ToString()))) / 1.13));
-
-                //}
-                //else if (dataGridView1.CurrentCell==dataGridView1.CurrentRow.Cells[5]){
-
-                //}
-                //else
-                //{
-                //    string dat = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                //    MessageBox.Show("Ha ingresado un valor incorrecto!. Por favor vuelva a intentarlo", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //    dataGridView1.CurrentRow.Cells[6].Value = dat;
-                //}
-
-
-              
-
-
+                
 
             }
             catch (NullReferenceException nuh)

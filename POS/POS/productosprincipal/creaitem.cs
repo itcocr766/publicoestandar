@@ -66,7 +66,7 @@ namespace POS.productosprincipal
                     using (var mysql = new Mysql())
                     {
                         mysql.conexion();
-                        mysql.cadenasql = "INSERT INTO `items`(`Codigo`, `Descripcion`, `Precio`, `Cantidad`, `Categoria`, `Impuesto`) VALUES ('"+textBox2.Text+"','"+richTextBox1.Text+"','"+double.Parse(textBox3.Text).ToString("0.00",CultureInfo.InvariantCulture)+"','"+ double.Parse(textBox4.Text).ToString("0.00", CultureInfo.InvariantCulture) + "','"+textBox5.Text+"','"+comboBox1.Text+"')";
+                        mysql.cadenasql = "INSERT INTO `items`(`Codigo`, `Descripcion`, `Precio`, `Cantidad`, `Categoria`, `Impuesto`) VALUES ('"+textBox2.Text+"','"+richTextBox1.Text+"','"+double.Parse(textBox3.Text).ToString("0.00000000", CultureInfo.InvariantCulture)+"','"+ double.Parse(textBox4.Text).ToString("0.00000000", CultureInfo.InvariantCulture) + "','"+textBox5.Text+"','"+comboBox1.Text+"')";
                         mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
                         mysql.comando.ExecuteNonQuery();
                         mysql.Dispose();

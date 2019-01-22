@@ -38,7 +38,9 @@ namespace POS
 {
     public partial class Form1 : Form
     {
-        bool bandera,bandera2;
+        public int rowSelected = 0;
+        string impue = "";
+        bool bandera;
         public string elvuelto;
         decimal cantited;
         decimal united;
@@ -126,7 +128,15 @@ namespace POS
 
             try
             {
-            
+                if (ConfigurationManager.AppSettings["apicomp"] == "749ad71a-8e08-48b4-a5c1-6a5de55b677f")
+                {
+                    label42.Text = "Conectado a Pruebas";
+                }
+                else
+                {
+                    label42.Text = "Conectado a Produccion";
+                }
+                comboBox6.SelectedIndex = 0;
                 comboBox2.Focus();
                 comboBox4.SelectedIndex = 0;
                 this.StartPosition = FormStartPosition.CenterScreen;
@@ -274,7 +284,7 @@ namespace POS
                     mysql.cadenasql = "insert into factura(Numero,Fecha,Cliente,Total,CodigoCajero,TipoPago,NumerodeComprobante,CodigoVendedor,Tipo)values('"
                         + idFac + "','" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + " "
                         + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second + "','" + comboBox3.Text.Trim() +
-                        "','" + double.Parse(textBox5.Text.Trim()).ToString("0.00",CultureInfo.InvariantCulture) + "','" + textBox4.Text + "','" + comboBox1.Text +
+                        "','" + double.Parse(textBox5.Text.Trim()).ToString("0.00000000", CultureInfo.InvariantCulture) + "','" + textBox4.Text + "','" + comboBox1.Text +
                         "','" + textBox7.Text.Trim() + "','" + comboBox2.Text + "','Factura')";
 
                     mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
@@ -284,30 +294,18 @@ namespace POS
                     {
                         mysql.cadenasql = "INSERT INTO `detalles`(`NumeroFactura`, `Cliente`, `Item`, `Cantidad`, `Descuento`, `Precio`,`Impuesto`) VALUES ('" + idFac + "','" +
                             comboBox3.Text.Trim() + "','" + dataGridView1.Rows[count].Cells[0].Value + "','" +
-                            dataGridView1.Rows[count].Cells[1].Value + "','" + double.Parse(dataGridView1.Rows[count].Cells[10].Value.ToString()).ToString("0.00", CultureInfo.InvariantCulture) + "','" +
-                            double.Parse(dataGridView1.Rows[count].Cells[3].Value.ToString()).ToString("0.00", CultureInfo.InvariantCulture) + "','" + dataGridView1.Rows[count].Cells[9].Value + "')";
+                            dataGridView1.Rows[count].Cells[1].Value + "','" + double.Parse(dataGridView1.Rows[count].Cells[10].Value.ToString()).ToString("0.00000000", CultureInfo.InvariantCulture) + "','" +
+                            double.Parse(dataGridView1.Rows[count].Cells[3].Value.ToString()).ToString("0.00000000", CultureInfo.InvariantCulture) + "','" + dataGridView1.Rows[count].Cells[9].Value + "')";
                         mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
                         mysql.comando.ExecuteNonQuery();
 
-                        if (dataGridView1.Rows[count].Cells[11].Value.ToString()=="Codigo")
-                        {
-                            mysql.cadenasql = "UPDATE items SET Cantidad=((SELECT Cantidad)-" + double.Parse(dataGridView1.Rows[count].Cells[1].Value.ToString()).ToString("0.00", CultureInfo.InvariantCulture) + ") where Codigo='" + dataGridView1.Rows[count].Cells[0].Value + "'";
+                            mysql.cadenasql = "UPDATE items SET Cantidad=((SELECT Cantidad)-" + double.Parse(dataGridView1.Rows[count].Cells[1].Value.ToString()).ToString("0.00000000", CultureInfo.InvariantCulture) + ") where Codigo='" + dataGridView1.Rows[count].Cells[0].Value + "'";
                             mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
                             mysql.comando.ExecuteNonQuery();
-                        }
-                        else
-                        {
-                            mysql.cadenasql = "UPDATE items SET Cantidad=((SELECT Cantidad)-" + double.Parse(dataGridView1.Rows[count].Cells[1].Value.ToString()).ToString("0.00", CultureInfo.InvariantCulture) + ") where CodigoA='" + dataGridView1.Rows[count].Cells[0].Value + "'";
-                            mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
-                            mysql.comando.ExecuteNonQuery();
-                        }
-
-                     
-
-
+  
                     }
                     /////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    mysql.cadenasql = "select Max(Numero),Fecha from factura where CodigoCajero='" + textBox4.Text + "' AND Cliente='" + comboBox3.Text.Trim() + "' AND Total='" + double.Parse(textBox5.Text.Trim()).ToString("0.00", CultureInfo.InvariantCulture) + "'";
+                    mysql.cadenasql = "select Max(Numero),Fecha from factura where CodigoCajero='" + textBox4.Text + "' AND Cliente='" + comboBox3.Text.Trim() + "' AND Total='" + double.Parse(textBox5.Text.Trim()).ToString("0.00000000", CultureInfo.InvariantCulture) + "'";
                     mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
                     mysql.comando.ExecuteNonQuery();
 
@@ -337,15 +335,13 @@ namespace POS
                        
                     }
 
-                    //MessageBox.Show("Factura guardada con éxito");
+                   
 
                     FE f = new FE()
                     {
 
                         CompanyAPI = ConfigurationManager.AppSettings["apicomp"]
-                        //CompanyAPI = "c6e8b995-a098-4ff5-9748-c8ff3e637e79"
-
-                        //CompanyAPI = "749ad71a-8e08-48b4-a5c1-6a5de55b677f"
+                       
 
                     };
 
@@ -884,7 +880,7 @@ namespace POS
 
         public void llenar(string codigo)
         {
-            //tipoCod = "";
+        
             int cuenta=0;
             string cod = "";
           
@@ -960,197 +956,21 @@ namespace POS
 
                     if (!bandera)
                     {
-                        MessageBox.Show("No pudimos encontrar el código ingresado", "Solicitud inválida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                      DialogResult result=  MessageBox.Show("Este producto no existe, desea facturar de todos modos ?", "Solicitud inválida", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                        if (result==DialogResult.Yes)
+                        {
+                            label18.Visible = true;
+                            textBox8.Visible = true;
+                            comboBox6.Visible = true;
+                            label21.Visible = true;
+                            textBox8.Focus();
+                        }
                     }
 
 
 
                     mysql.Dispose();
                 }
-
-
-
-
-                //using (var mysql=new Mysql())
-                //{
-                //    mysql.conexion();
-                //    mysql.cadenasql = "select * from items where Codigo='" + codigo + "'";
-                //    mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
-                //    mysql.comando.ExecuteNonQuery();
-
-
-                //    using (MySqlDataReader lec = mysql.comando.ExecuteReader())
-                //    {
-                //        if(lec.Read())
-                //        {
-
-
-                //            if (lec["Impuesto"].ToString() == "Impuesto")
-                //            {
-                //                impos = true;
-                //            }
-                //            else
-                //            {
-                //                impos = false;
-                //            }
-
-                //            for (int y = 0; y < dataGridView1.Rows.Count; y++)
-                //            {
-
-
-
-                //                if (textBox1.Text.Trim() == dataGridView1.Rows[y].Cells[0].Value.ToString())
-                //                {
-
-                //                    existe = true;
-
-
-                //                }
-
-
-
-
-
-
-                //            }
-
-
-                //            if (existe == true)
-                //            {
-                //                for (int y = 0; y < dataGridView1.Rows.Count; y++)
-                //                {
-                //                    if (dataGridView1.Rows[y].Cells[0].Value.ToString() == textBox1.Text.Trim())
-                //                    {
-                //                        dataGridView1.Rows[y].Cells[1].Value = decimal.Parse(dataGridView1.Rows[y].Cells[1].Value.ToString()) + decimal.Parse(textBox2.Text.Trim());
-
-                //                        dataGridView1.Rows[y].Cells[7].Value = (decimal.Parse(dataGridView1.Rows[y].Cells[6].Value.ToString()) * decimal.Parse(dataGridView1.Rows[y].Cells[1].Value.ToString()));
-                //                        if (impos)
-                //                        {
-                //                            dataGridView1.Rows[y].Cells[8].Value = (decimal.Parse(dataGridView1.Rows[y].Cells[3].Value.ToString()) - (decimal.Parse(dataGridView1.Rows[y].Cells[3].Value.ToString()) / 1.13m)) * decimal.Parse(dataGridView1.Rows[y].Cells[1].Value.ToString());
-                //                        }
-                //                        else
-                //                        {
-                //                            dataGridView1.Rows[y].Cells[8].Value = decimal.Parse(dataGridView1.Rows[y].Cells[3].Value.ToString()) * decimal.Parse(dataGridView1.Rows[y].Cells[1].Value.ToString());
-
-                //                        }
-                //                        //dataGridView1.Rows[y].Cells[10].Value =(double.Parse(dataGridView1.Rows[y].Cells[10].Value.ToString())*Int32.Parse(dataGridView1.Rows[y].Cells[1].Value.ToString()));
-
-                //                        agregarFila();
-
-                //                    }
-
-
-
-
-                //                }
-
-                //            }
-
-                //            else if (existe == false)
-                //            {
-                //                string totsin = "";
-                //                if (impos)
-                //                {
-                //                    if (presesp)
-                //                    {
-                //                        precio = presespe;
-                //                        totsin = string.Format("{0:N3}", (precio / 1.13m));
-                //                        totalsinimpuesto = decimal.Parse(totsin);
-                //                        cantidad = decimal.Parse(textBox2.Text.Trim());
-                //                        impuestounidad = (precio - (precio / 1.13m)) * cantidad;
-                //                        impuestoenespanol = "(G)";
-
-                //                        totalconimpuesto = precio;
-                //                        total = totalconimpuesto * cantidad;
-                //                        dataGridView1.Rows.Add(lec["Codigo"], cantidad, lec["Nombre"], precio, canuj.enletras(precio.ToString()), totalsinimpuesto, totalconimpuesto, (totalconimpuesto * cantidad), impuestounidad, impuestoenespanol);
-                //                        agregarFila();
-                //                    }
-                //                    else
-                //                    {
-
-                //                        precio = decimal.Parse(lec["Precio"].ToString());
-                //                        totsin = string.Format("{0:N3}", (precio / 1.13m));
-                //                        totalsinimpuesto = decimal.Parse(totsin);
-                //                        cantidad = decimal.Parse(textBox2.Text.Trim());
-                //                        impuestounidad = (precio - (precio / 1.13m)) * cantidad;
-                //                        impuestoenespanol = "(G)";
-
-                //                        totalconimpuesto = precio;
-                //                        total = totalconimpuesto * cantidad;
-                //                        dataGridView1.Rows.Add(lec["Codigo"], cantidad, lec["Nombre"], precio, canuj.enletras(precio.ToString()), totalsinimpuesto, totalconimpuesto, (totalconimpuesto * cantidad), impuestounidad, impuestoenespanol);
-                //                        agregarFila();
-                //                    }
-
-                //                }
-                //                else if (impos == false)
-                //                {
-
-                //                    if (presesp)
-                //                    {
-
-                //                        precio = presespe;
-                //                        totalsinimpuesto = precio;
-                //                        cantidad = decimal.Parse(textBox2.Text.Trim());
-                //                        exentounidad = precio * cantidad;
-                //                        impuestoenespanol = "(E)";
-                //                        totalconimpuesto = precio;
-                //                        total = totalconimpuesto * cantidad;
-                //                        dataGridView1.Rows.Add(lec["Codigo"], cantidad, lec["Nombre"], precio, canuj.enletras(precio.ToString()), totalsinimpuesto, totalconimpuesto, (totalconimpuesto * cantidad), exentounidad, impuestoenespanol);
-                //                        agregarFila();
-                //                    }
-                //                    else
-                //                    {
-                //                        precio = decimal.Parse(lec["Precio"].ToString());
-                //                        totalsinimpuesto = precio;
-                //                        cantidad = decimal.Parse(textBox2.Text.Trim());
-                //                        exentounidad = precio * cantidad;
-                //                        impuestoenespanol = "(E)";
-                //                        totalconimpuesto = precio;
-                //                        total = totalconimpuesto * cantidad;
-                //                        dataGridView1.Rows.Add(lec["Codigo"], cantidad, lec["Nombre"], precio, canuj.enletras(precio.ToString()), totalsinimpuesto, totalconimpuesto, (totalconimpuesto * cantidad), exentounidad, impuestoenespanol);
-                //                        agregarFila();
-                //                    }
-                //                }
-
-
-
-
-                //            }
-                //            else
-                //            {
-
-                //                MessageBox.Show("Ya No hay suficiente inventario para este item");
-
-                //            }
-
-
-
-                //            textBox1.Focus();
-                //        }
-
-
-                //        else
-                //        {
-
-                //            MessageBox.Show("No hemos podido encontrar este producto,verifique que sea un producto existente");
-                //            textBox1.Text = "";
-                //            textBox1.Focus();
-                //        }
-
-
-                //    }
-
-                //    mysql.Dispose();
-
-                //}
-
-
-
-
-
-
-
-
 
 
 
@@ -1164,101 +984,7 @@ namespace POS
 
             }
 
-            //descuentos = 0;
-            //double cantidad = 0;
-            //double precio = 0;
-            //decimal totalsinimpuesto = 0;
-            //decimal totalconimpuesto = 0;
-            //double existencias = 0;
-
-
-
-            //try
-            //{
-
-
-
-            //    using (var mysql = new Mysql())
-            //    {
-
-            //        mysql.conexion();
-
-            //        mysql.cadenasql = "select * from items where Barcode='" + codigo + "'";
-            //        mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
-            //        mysql.comando.ExecuteNonQuery();
-            //        mysql.lector = mysql.comando.ExecuteReader();
-
-            //        if (mysql.lector.Read())
-            //        {
-
-
-
-            //            if (mysql.lector["Impuesto"].ToString() == "Impuesto")
-            //            {
-            //                impuestoenespanol = "(G)";
-            //                cantidad = double.Parse(textBox2.Text.Trim());
-            //                precio = double.Parse(mysql.lector["Precio"].ToString());
-            //                existencias = double.Parse(mysql.lector["OnHand"].ToString());
-            //                dataGridView1.Rows.Add(mysql.lector["Barcode"], cantidad, mysql.lector["Descripcion"], precio,existencias, "0", totalsinimpuesto, totalconimpuesto, 10000, impuestoenespanol, "0");
-            //                //agregarFila();
-            //                actualizargridgeneral();
-            //                calcularTotal();
-
-            //            }
-            //            else
-            //            {
-            //                impuestoenespanol = "(E)";
-            //                cantidad = double.Parse(textBox2.Text.Trim());
-            //                precio = double.Parse(mysql.lector["Precio"].ToString());
-            //                existencias = double.Parse(mysql.lector["OnHand"].ToString());
-            //                dataGridView1.Rows.Add(mysql.lector["Barcode"], cantidad, mysql.lector["Descripcion"], precio,existencias, "0", totalsinimpuesto, totalconimpuesto, 10000, impuestoenespanol, "0");
-            //                //agregarFila();
-            //                actualizargridgeneral();
-            //                calcularTotal();
-            //            }
-
-
-
-
-
-            //        }
-
-
-
-
-
-
-
-            //        else
-            //        {
-
-            //            MessageBox.Show("No hemos podido encontrar este producto,verifique que sea un producto existente");
-            //            textBox1.Text = "";
-            //            textBox1.Focus();
-            //        }
-            //        // MessageBox.Show(re["Barcode"].ToString()+"  "+re["COGSAccount"].ToString());
-
-
-            //        mysql.Dispose();
-
-            //    }
-
-
-            //    textBox1.Focus();
-
-
-            //}
-            //catch (FormatException fe)
-            //{
-
-            //}
-            //catch (Exception err_006)
-            //{
-            //    Mensaje.Error(err_006, "416");
-
-
-
-            //}
+           
 
 
         }
@@ -3896,6 +3622,42 @@ namespace POS
             
         }
 
+        private void textBox8_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar)||char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox8_KeyDown_1(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (comboBox6.Text == "Impuesto")
+                {
+                    impue = "Impuesto";
+                }
+                else
+                {
+                    impue = "Non";
+                }
+                
+                dataGridView1.Rows.Add("GENERICO",1,"GENERICO",textBox8.Text,0,0,0,0,0, impue, 0,"GENERICO");
+                calcularTotal();
+                textBox8.Visible = false;
+                comboBox6.Visible = false;
+                label18.Visible = false;
+                label21.Visible = false;
+                textBox1.Focus();
+            }
+        }
+
         private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             if (dataGridView1.CurrentCell.ColumnIndex==5)
@@ -3906,6 +3668,56 @@ namespace POS
                 txb.KeyPress += new KeyPressEventHandler(dataGridView1_KeyPress);
               
             }
+        }
+
+        private void comboBox6_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (comboBox6.Text == "Impuesto")
+                {
+                    impue = "Impuesto";
+                }
+                else
+                {
+                    impue = "Non";
+                }
+
+                dataGridView1.Rows.Add("GENERICO", 1, "GENERICO", textBox8.Text, 0, 0, 0, 0, 0, impue, 0);
+                calcularTotal();
+                textBox8.Visible = false;
+                comboBox6.Visible = false;
+                label18.Visible = false;
+                label21.Visible = false;
+                textBox1.Focus();
+            }
+        }
+
+        private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                rowSelected = e.RowIndex;
+                dataGridView1.MultiSelect = false;
+                if (e.RowIndex != -1)
+                {
+                    
+                    dataGridView1.Rows[rowSelected].Selected = true;
+
+                }
+
+            }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            
+        }
+
+        private void cambiarPrecioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cambioprecio cp = new cambioprecio(this);
+            cp.Show(this);
         }
 
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
