@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label49 = new System.Windows.Forms.Label();
@@ -54,6 +54,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label42 = new System.Windows.Forms.Label();
             this.textBox19 = new System.Windows.Forms.TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -150,7 +151,8 @@
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cambiarPrecioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label42 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -395,6 +397,17 @@
             this.panel5.Size = new System.Drawing.Size(712, 232);
             this.panel5.TabIndex = 1;
             this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseDown);
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label42.Location = new System.Drawing.Point(100, 11);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(89, 20);
+            this.label42.TabIndex = 34;
+            this.label42.Text = "Conectado a:";
             // 
             // textBox19
             // 
@@ -884,71 +897,71 @@
             // 
             // precio
             // 
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = "Precio";
-            this.precio.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle25.Format = "N2";
+            dataGridViewCellStyle25.NullValue = "Precio";
+            this.precio.DefaultCellStyle = dataGridViewCellStyle25;
             this.precio.HeaderText = "Precio";
             this.precio.Name = "precio";
             this.precio.ReadOnly = true;
             // 
             // monto
             // 
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = "Monto";
-            this.monto.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle26.Format = "N2";
+            dataGridViewCellStyle26.NullValue = "Monto";
+            this.monto.DefaultCellStyle = dataGridViewCellStyle26;
             this.monto.HeaderText = "Existencia";
             this.monto.Name = "monto";
             this.monto.ReadOnly = true;
             // 
             // Descuento
             // 
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = "Descuento";
-            this.Descuento.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle27.Format = "N2";
+            dataGridViewCellStyle27.NullValue = "Descuento";
+            this.Descuento.DefaultCellStyle = dataGridViewCellStyle27;
             this.Descuento.HeaderText = "Descuento";
             this.Descuento.Name = "Descuento";
             // 
             // Total_impuesto
             // 
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = "Unitario_sin_impuesto";
-            this.Total_impuesto.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle28.Format = "N2";
+            dataGridViewCellStyle28.NullValue = "Unitario_sin_impuesto";
+            this.Total_impuesto.DefaultCellStyle = dataGridViewCellStyle28;
             this.Total_impuesto.HeaderText = "Unitario_sin_impuesto";
             this.Total_impuesto.Name = "Total_impuesto";
             this.Total_impuesto.ReadOnly = true;
             // 
             // totalconimpuesto
             // 
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = "Unitario_con_impuesto";
-            this.totalconimpuesto.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle29.Format = "N2";
+            dataGridViewCellStyle29.NullValue = "Unitario_con_impuesto";
+            this.totalconimpuesto.DefaultCellStyle = dataGridViewCellStyle29;
             this.totalconimpuesto.HeaderText = "Unitario_con_impuesto";
             this.totalconimpuesto.Name = "totalconimpuesto";
             this.totalconimpuesto.ReadOnly = true;
             // 
             // total
             // 
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = "total";
-            this.total.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle30.Format = "N2";
+            dataGridViewCellStyle30.NullValue = "total";
+            this.total.DefaultCellStyle = dataGridViewCellStyle30;
             this.total.HeaderText = "Total";
             this.total.Name = "total";
             this.total.ReadOnly = true;
             // 
             // impuesto
             // 
-            dataGridViewCellStyle7.Format = "N2";
-            dataGridViewCellStyle7.NullValue = "impuesto";
-            this.impuesto.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle31.Format = "N2";
+            dataGridViewCellStyle31.NullValue = "impuesto";
+            this.impuesto.DefaultCellStyle = dataGridViewCellStyle31;
             this.impuesto.HeaderText = "Impuesto";
             this.impuesto.Name = "impuesto";
             this.impuesto.ReadOnly = true;
             // 
             // Total_Descuento
             // 
-            dataGridViewCellStyle8.Format = "N2";
-            dataGridViewCellStyle8.NullValue = "Total_Descuento";
-            this.Total_Descuento.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle32.Format = "N2";
+            dataGridViewCellStyle32.NullValue = "Total_Descuento";
+            this.Total_Descuento.DefaultCellStyle = dataGridViewCellStyle32;
             this.Total_Descuento.HeaderText = "Total_Descuento";
             this.Total_Descuento.Name = "Total_Descuento";
             this.Total_Descuento.ReadOnly = true;
@@ -1381,6 +1394,8 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(94)))), ((int)(((byte)(103)))));
+            this.panel7.Controls.Add(this.label43);
+            this.panel7.Controls.Add(this.textBox11);
             this.panel7.Controls.Add(this.label21);
             this.panel7.Controls.Add(this.comboBox6);
             this.panel7.Controls.Add(this.label18);
@@ -1404,7 +1419,7 @@
             this.label21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(94)))), ((int)(((byte)(103)))));
             this.label21.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label21.Location = new System.Drawing.Point(227, 172);
+            this.label21.Location = new System.Drawing.Point(246, 132);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(65, 15);
             this.label21.TabIndex = 34;
@@ -1417,9 +1432,9 @@
             this.comboBox6.Items.AddRange(new object[] {
             "Impuesto",
             "Sin Impuesto"});
-            this.comboBox6.Location = new System.Drawing.Point(227, 192);
+            this.comboBox6.Location = new System.Drawing.Point(246, 152);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 21);
+            this.comboBox6.Size = new System.Drawing.Size(90, 21);
             this.comboBox6.TabIndex = 33;
             this.comboBox6.Visible = false;
             this.comboBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBox6_KeyDown);
@@ -1430,7 +1445,7 @@
             this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(94)))), ((int)(((byte)(103)))));
             this.label18.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label18.Location = new System.Drawing.Point(36, 173);
+            this.label18.Location = new System.Drawing.Point(16, 178);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(164, 15);
             this.label18.TabIndex = 32;
@@ -1439,7 +1454,7 @@
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(39, 193);
+            this.textBox8.Location = new System.Drawing.Point(35, 196);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(145, 20);
             this.textBox8.TabIndex = 31;
@@ -1454,7 +1469,7 @@
             this.comboBox5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBox5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(50, 91);
+            this.comboBox5.Location = new System.Drawing.Point(43, 65);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(217, 27);
             this.comboBox5.TabIndex = 30;
@@ -1466,7 +1481,7 @@
             this.label51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(94)))), ((int)(((byte)(103)))));
             this.label51.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label51.Location = new System.Drawing.Point(42, 122);
+            this.label51.Location = new System.Drawing.Point(11, 94);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(198, 45);
             this.label51.TabIndex = 29;
@@ -1478,7 +1493,7 @@
             this.label36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(94)))), ((int)(((byte)(103)))));
             this.label36.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label36.Location = new System.Drawing.Point(12, 54);
+            this.label36.Location = new System.Drawing.Point(5, 37);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(33, 26);
             this.label36.TabIndex = 28;
@@ -1491,7 +1506,7 @@
             this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.FormattingEnabled = true;
-            this.textBox1.Location = new System.Drawing.Point(50, 53);
+            this.textBox1.Location = new System.Drawing.Point(43, 36);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(217, 27);
             this.textBox1.TabIndex = 22;
@@ -1507,7 +1522,7 @@
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(94)))), ((int)(((byte)(103)))));
             this.label12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(223, 25);
+            this.label12.Location = new System.Drawing.Point(267, 11);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(69, 19);
             this.label12.TabIndex = 15;
@@ -1520,7 +1535,7 @@
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(94)))), ((int)(((byte)(103)))));
             this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(63, 25);
+            this.label6.Location = new System.Drawing.Point(56, 8);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 19);
             this.label6.TabIndex = 14;
@@ -1532,7 +1547,7 @@
             this.textBox2.Enabled = false;
             this.textBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(285, 53);
+            this.textBox2.Location = new System.Drawing.Point(271, 33);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(51, 27);
             this.textBox2.TabIndex = 1;
@@ -1567,16 +1582,28 @@
             this.cambiarPrecioToolStripMenuItem.Text = "Cambiar precio";
             this.cambiarPrecioToolStripMenuItem.Click += new System.EventHandler(this.cambiarPrecioToolStripMenuItem_Click);
             // 
-            // label42
+            // textBox11
             // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label42.Location = new System.Drawing.Point(100, 11);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(89, 20);
-            this.label42.TabIndex = 34;
-            this.label42.Text = "Conectado a:";
+            this.textBox11.Location = new System.Drawing.Point(205, 196);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(145, 20);
+            this.textBox11.TabIndex = 35;
+            this.textBox11.Visible = false;
+            this.textBox11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox11_KeyDown_1);
+            this.textBox11.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox11_KeyPress);
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(94)))), ((int)(((byte)(103)))));
+            this.label43.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label43.Location = new System.Drawing.Point(202, 178);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(69, 15);
+            this.label43.TabIndex = 36;
+            this.label43.Text = "Descripción";
+            this.label43.Visible = false;
             // 
             // Form1
             // 
@@ -1742,6 +1769,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem cambiarPrecioToolStripMenuItem;
         private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox textBox11;
     }
 }
 

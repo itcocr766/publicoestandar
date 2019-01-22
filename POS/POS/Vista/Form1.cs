@@ -38,6 +38,7 @@ namespace POS
 {
     public partial class Form1 : Form
     {
+        string descript = "";
         public int rowSelected = 0;
         string impue = "";
         bool bandera;
@@ -962,7 +963,8 @@ namespace POS
                             label18.Visible = true;
                             textBox8.Visible = true;
                             comboBox6.Visible = true;
-                            label21.Visible = true;
+                            label43.Visible = true;
+                            textBox11.Visible = true;
                             textBox8.Focus();
                         }
                     }
@@ -1337,6 +1339,15 @@ namespace POS
             {
                 button3.PerformClick();
                
+            }
+            else if (e.KeyCode==Keys.F12)
+            {
+                if (dataGridView1.Rows.Count>0)
+                {
+                    dataGridView1.Focus();
+                    dataGridView1.MultiSelect = false;
+                    dataGridView1.Rows[0].Cells[0].Selected = true;
+                }
             }
           
 
@@ -3619,7 +3630,17 @@ namespace POS
 
         private void dataGridView1_KeyDown_2(object sender, KeyEventArgs e)
         {
-            
+            if (e.KeyCode==Keys.F11)
+            {
+                if (dataGridView1.Rows.Count > 0)
+                {
+                    rowSelected = dataGridView1.CurrentRow.Index;
+                    cambioprecio cpr = new cambioprecio(this);
+                    cpr.Show(this);
+                }
+
+            }
+           
         }
 
         private void textBox8_KeyPress(object sender, KeyPressEventArgs e)
@@ -3639,23 +3660,44 @@ namespace POS
 
             if (e.KeyCode == Keys.Enter)
             {
-                if (comboBox6.Text == "Impuesto")
+                if (!string.IsNullOrEmpty(textBox8.Text))
                 {
-                    impue = "Impuesto";
+                    if (comboBox6.Text == "Impuesto")
+                    {
+                        impue = "Impuesto";
+                    }
+                    else
+                    {
+                        impue = "Non";
+                    }
+
+
+                    if (!string.IsNullOrEmpty(textBox11.Text))
+                    {
+                        descript = textBox11.Text;
+                    }
+                    else
+                    {
+                        descript = "GENERICO";
+                    }
+
+                    dataGridView1.Rows.Add("GENERICO", 1, descript, textBox8.Text, 0, 0, 0, 0, 0, impue, 0, "GENERICO");
+                    calcularTotal();
+                    textBox8.Visible = false;
+                    comboBox6.Visible = false;
+                    label18.Visible = false;
+                    label21.Visible = false;
+                    textBox11.Visible = false;
+                    label43.Visible = false;
+                    textBox1.Focus();
                 }
                 else
                 {
-                    impue = "Non";
+                    MessageBox.Show("Faltan datos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-                
-                dataGridView1.Rows.Add("GENERICO",1,"GENERICO",textBox8.Text,0,0,0,0,0, impue, 0,"GENERICO");
-                calcularTotal();
-                textBox8.Visible = false;
-                comboBox6.Visible = false;
-                label18.Visible = false;
-                label21.Visible = false;
-                textBox1.Focus();
+
             }
+          
         }
 
         private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -3681,6 +3723,15 @@ namespace POS
                 else
                 {
                     impue = "Non";
+                }
+
+                if (!string.IsNullOrEmpty(textBox11.Text))
+                {
+                    descript = textBox11.Text;
+                }
+                else
+                {
+                    descript = "GENERICO";
                 }
 
                 dataGridView1.Rows.Add("GENERICO", 1, "GENERICO", textBox8.Text, 0, 0, 0, 0, 0, impue, 0);
@@ -3718,6 +3769,62 @@ namespace POS
         {
             cambioprecio cp = new cambioprecio(this);
             cp.Show(this);
+        }
+
+        private void textBox11_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar)||char.IsLetter(e.KeyChar)||char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox11_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (!string.IsNullOrEmpty(textBox8.Text))
+                {
+                    if (comboBox6.Text == "Impuesto")
+                    {
+                        impue = "Impuesto";
+                    }
+                    else
+                    {
+                        impue = "Non";
+                    }
+
+
+                    if (!string.IsNullOrEmpty(textBox11.Text))
+                    {
+                        descript = textBox11.Text;
+                    }
+                    else
+                    {
+                        descript = "GENERICO";
+                    }
+
+                    dataGridView1.Rows.Add("GENERICO", 1, descript, textBox8.Text, 0, 0, 0, 0, 0, impue, 0, "GENERICO");
+                    calcularTotal();
+                    textBox8.Visible = false;
+                    comboBox6.Visible = false;
+                    label18.Visible = false;
+                    label21.Visible = false;
+                    textBox11.Visible = false;
+                    label43.Visible = false;
+                    textBox1.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Faltan datos", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+            }
+           
         }
 
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
