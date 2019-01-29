@@ -9301,7 +9301,6 @@ C:\Users\rix\Documents\itco\Estandar\POS\POS\bin\Debug\zh-CHS\Microsoft.ReportVi
 C:\Users\rix\Documents\itco\Estandar\POS\POS\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\rix\Documents\itco\Estandar\POS\POS\bin\Debug\es\Microsoft.VisualStudio.Data.Services.resources.dll
 C:\Users\rix\Documents\itco\Estandar\POS\POS\bin\Debug\es\Microsoft.VisualStudio.Data.Core.resources.dll
-C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.csprojAssemblyReference.cache
 C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.exe.config
 C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.Anulaciones.resources
 C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.Anular.contr.resources
@@ -9332,6 +9331,8 @@ C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.Reportes.Ventasrepor.
 C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.vendedoresprincipal_.creavendedor.resources
 C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.vendedoresprincipal_.vendmod.resources
 C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.Vista.administracion.resources
+C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.Vista.cambiodecantidad.resources
+C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.Vista.cambioprecio.resources
 C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.MenuPrincipal.resources
 C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.clientesprincipal.clies.resources
 C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.Form1.resources
@@ -9349,5 +9350,4 @@ C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.application
 C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.csproj.CopyComplete
 C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.exe
 C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.pdb
-C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.Vista.cambioprecio.resources
-C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.Vista.cambiodecantidad.resources
+C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.csprojAssemblyReference.cache

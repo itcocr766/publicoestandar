@@ -940,7 +940,7 @@ namespace POS
                                     bandera = true;
                                     cod = lee["Codigo"].ToString();
                                     
-                                    dataGridView1.Rows.Add(textBox1.Text, textBox2.Text, lee["Descripcion"].ToString(), lee["Precio"].ToString(), lee["Cantidad"].ToString(), 0, 0, 0, 0, lee["Impuesto"].ToString(), 0, "Codigo");
+                                    dataGridView1.Rows.Add(textBox1.Text, "1,00", lee["Descripcion"].ToString(), lee["Precio"].ToString(), lee["Cantidad"].ToString(), 0, 0, 0, 0, lee["Impuesto"].ToString(), 0, "Codigo");
                                     calcularTotal();
                                 }
                                 else
@@ -1095,28 +1095,7 @@ namespace POS
                 textBox6.Text = string.Format("{0:N2}", totalimp);
 
 
-                //    dataGridView1.Rows[restadescuento].Cells[8].Value = double.Parse(dataGridView1.Rows[restadescuento].Cells[8].Value.ToString()) - (((double.Parse(dataGridView1.Rows[restadescuento].Cells[8].Value.ToString()) * Int32.Parse(dataGridView1.Rows[restadescuento].Cells[5].Value.ToString()))) / 100);
-                //    totalt += double.Parse(dataGridView1.Rows[restadescuento].Cells[8].Value.ToString());
-                //    descuentos += double.Parse(dataGridView1.Rows[restadescuento].Cells[10].Value.ToString());
-                //    textBox13.Text = string.Format("{0:N2}", descuentos);
-                //    if (dataGridView1.Rows[restadescuento].Cells[9].Value.ToString() == "(G)")
-                //    {
-                //        basesinimp = double.Parse(dataGridView1.Rows[restadescuento].Cells[3].Value.ToString()) / 1.13;
-                //        can = Int32.Parse(dataGridView1.Rows[restadescuento].Cells[1].Value.ToString());
-                //        totalimp += (((basesinimp * can) - double.Parse(dataGridView1.Rows[restadescuento].Cells[10].Value.ToString())) * 13) / 100;
-                //        sub += basesinimp * can;
-                //    }
-                //    else
-                //    {
-                //        sub += (double.Parse(dataGridView1.Rows[restadescuento].Cells[3].Value.ToString())) * Int32.Parse(dataGridView1.Rows[restadescuento].Cells[1].Value.ToString());
-                //    }
-
-                //}
-                //totalt = double.Parse(textBox3.Text) + double.Parse(textBox6.Text);
-
-                //textBox3.Text = string.Format("{0:N2}", (sub - descuentos));
-                //textBox5.Text = string.Format("{0:N2}", totalt);
-                //textBox6.Text = string.Format("{0:N2}", totalimp);
+               
 
 
             }
