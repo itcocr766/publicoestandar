@@ -9350,3 +9350,4 @@ C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.csproj.CopyComplete
 C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.exe
 C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.pdb
 C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.Vista.cambioprecio.resources
+C:\Users\rix\Documents\itco\Estandar\POS\POS\obj\Debug\POS.Vista.cambiodecantidad.resources

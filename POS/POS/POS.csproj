@@ -336,6 +336,12 @@
     <Compile Include="Vista\administracion.Designer.cs">
       <DependentUpon>administracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\cambiodecantidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\cambiodecantidad.Designer.cs">
+      <DependentUpon>cambiodecantidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\cambioprecio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -494,6 +500,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\administracion.resx">
       <DependentUpon>administracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\cambiodecantidad.resx">
+      <DependentUpon>cambiodecantidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\cambioprecio.resx">
       <DependentUpon>cambioprecio.cs</DependentUpon>

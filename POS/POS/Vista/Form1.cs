@@ -890,13 +890,21 @@ namespace POS
             {
                 if (!string.IsNullOrEmpty(diccionario.FirstOrDefault(x => x.Key == textBox1.Text).Value))
                 {
-                    label51.Text = diccionario.FirstOrDefault(f => f.Key == textBox1.Text).Value;
+                    if (diccionario.FirstOrDefault(f => f.Key == textBox1.Text).Value.ToString().Length>17)
+                    {
+                        label51.Text = diccionario.FirstOrDefault(f => f.Key == textBox1.Text).Value.ToString().Substring(0,17);
+                    }
+                    else
+                    {
+                        label51.Text = diccionario.FirstOrDefault(f => f.Key == textBox1.Text).Value;
+                    }
+                   
 
 
                 }
                 else
                 {
-                    label51.Text = "No encontramos este producto";
+                    label51.Text = "No existe";
 
 
                 }
@@ -1299,11 +1307,28 @@ namespace POS
                 {
                     comboBox1.Text = "Tarjeta";
                 }
-                else
+                else if(comboBox1.Text=="Tarjeta")
+                {
+
+                    comboBox1.Text = "Crédito";
+                }
+                else if (comboBox1.Text == "Crédito")
+                {
+
+                    comboBox1.Text = "Crédito 30 días";
+                }
+                else if (comboBox1.Text == "Crédito 30 días")
+                {
+
+                    comboBox1.Text = "Crédito 15 días";
+                }
+                else if (comboBox1.Text == "Crédito 15 días")
                 {
 
                     comboBox1.Text = "Efectivo";
                 }
+
+
 
             }
             else if (e.KeyCode == Keys.F6)
@@ -3267,7 +3292,16 @@ namespace POS
         {
             if (!string.IsNullOrEmpty(diccionario.FirstOrDefault(x=>x.Key==textBox1.Text).Value))
             {
-                label51.Text = diccionario.FirstOrDefault(f => f.Key == textBox1.Text).Value;
+
+                if (diccionario.FirstOrDefault(f => f.Key == textBox1.Text).Value.ToString().Length > 17)
+                {
+                    label51.Text = diccionario.FirstOrDefault(f => f.Key == textBox1.Text).Value.ToString().Substring(0, 17);
+                }
+                else
+                {
+                    label51.Text = diccionario.FirstOrDefault(f => f.Key == textBox1.Text).Value;
+                }
+              
 
                
             }
@@ -3640,6 +3674,15 @@ namespace POS
                 }
 
             }
+            else if (e.KeyCode == Keys.F4)
+            {
+                if (dataGridView1.Rows.Count > 0)
+                {
+                    rowSelected = dataGridView1.CurrentRow.Index;
+                    cambiodecantidad cpr = new cambiodecantidad(this);
+                    cpr.Show(this);
+                }
+            }
            
         }
 
@@ -3825,6 +3868,12 @@ namespace POS
 
             }
            
+        }
+
+        private void cambiarCantidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cambiodecantidad ccan = new cambiodecantidad(this);
+            ccan.Show(this);
         }
 
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
