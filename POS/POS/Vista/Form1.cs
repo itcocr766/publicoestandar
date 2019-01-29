@@ -652,7 +652,7 @@ namespace POS
 
 
 
-            //string urlAPI = "http://104.43.136.13:8080/api/invoice/";
+            
             string urlAPI = ConfigurationManager.AppSettings["endpo"];
 
             string api = urlAPI + "/api/invoice";

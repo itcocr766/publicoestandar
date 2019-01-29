@@ -21,7 +21,7 @@ namespace POS.Vista
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsNumber(e.KeyChar)||char.IsControl(e.KeyChar))
+            if (char.IsNumber(e.KeyChar)||char.IsControl(e.KeyChar) ||e.KeyChar=='.')
             {
                 e.Handled = false;
             }
