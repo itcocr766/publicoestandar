@@ -4,7 +4,7 @@
   <description asmv2:iconFile="ion-crypto-cryptocurrency-cryptocurrencies-cash-money-bank-payment_95452.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="POS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="POS" version="1.0.0.0" publicKeyToken="D46CAB2B55961F83" language="neutral" processorArchitecture="msil" />
     <commandLine file="POS.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -1015,14 +1015,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS.exe" size="4087296">
-      <assemblyIdentity name="POS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS.exe" size="4087808">
+      <assemblyIdentity name="POS" version="1.0.0.0" publicKeyToken="D46CAB2B55961F83" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>xdLCtdFFWf875gFmpD9uN9ixStm46+jXtxO8Omw8Tps=</dsig:DigestValue>
+        <dsig:DigestValue>4iINjtxrPpduA4nhAmbH5/8b2aOyhkSFWboJ7WG4Dck=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
