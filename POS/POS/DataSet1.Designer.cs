@@ -1386,8 +1386,6 @@ namespace POS {
             
             private global::System.Data.DataColumn columnCodigo;
             
-            private global::System.Data.DataColumn columnCodigoA;
-            
             private global::System.Data.DataColumn columnDescripcion;
             
             private global::System.Data.DataColumn columnPrecio;
@@ -1398,7 +1396,7 @@ namespace POS {
             
             private global::System.Data.DataColumn columnImpuesto;
             
-            private global::System.Data.DataColumn columnIdentificador;
+            private global::System.Data.DataColumn columnCosto;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1438,14 +1436,6 @@ namespace POS {
             public global::System.Data.DataColumn CodigoColumn {
                 get {
                     return this.columnCodigo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CodigoAColumn {
-                get {
-                    return this.columnCodigoA;
                 }
             }
             
@@ -1491,9 +1481,9 @@ namespace POS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn IdentificadorColumn {
+            public global::System.Data.DataColumn CostoColumn {
                 get {
-                    return this.columnIdentificador;
+                    return this.columnCosto;
                 }
             }
             
@@ -1534,17 +1524,16 @@ namespace POS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ProductosRow AddProductosRow(string Codigo, string CodigoA, string Descripcion, string Precio, string Cantidad, string Categoria, string Impuesto, string Identificador) {
+            public ProductosRow AddProductosRow(string Codigo, string Descripcion, string Precio, string Cantidad, string Categoria, string Impuesto, string Costo) {
                 ProductosRow rowProductosRow = ((ProductosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Codigo,
-                        CodigoA,
                         Descripcion,
                         Precio,
                         Cantidad,
                         Categoria,
                         Impuesto,
-                        Identificador};
+                        Costo};
                 rowProductosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProductosRow);
                 return rowProductosRow;
@@ -1568,13 +1557,12 @@ namespace POS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnCodigo = base.Columns["Codigo"];
-                this.columnCodigoA = base.Columns["CodigoA"];
                 this.columnDescripcion = base.Columns["Descripcion"];
                 this.columnPrecio = base.Columns["Precio"];
                 this.columnCantidad = base.Columns["Cantidad"];
                 this.columnCategoria = base.Columns["Categoria"];
                 this.columnImpuesto = base.Columns["Impuesto"];
-                this.columnIdentificador = base.Columns["Identificador"];
+                this.columnCosto = base.Columns["Costo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1582,8 +1570,6 @@ namespace POS {
             private void InitClass() {
                 this.columnCodigo = new global::System.Data.DataColumn("Codigo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCodigo);
-                this.columnCodigoA = new global::System.Data.DataColumn("CodigoA", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCodigoA);
                 this.columnDescripcion = new global::System.Data.DataColumn("Descripcion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescripcion);
                 this.columnPrecio = new global::System.Data.DataColumn("Precio", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1594,8 +1580,8 @@ namespace POS {
                 base.Columns.Add(this.columnCategoria);
                 this.columnImpuesto = new global::System.Data.DataColumn("Impuesto", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnImpuesto);
-                this.columnIdentificador = new global::System.Data.DataColumn("Identificador", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIdentificador);
+                this.columnCosto = new global::System.Data.DataColumn("Costo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCosto);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1731,8 +1717,6 @@ namespace POS {
             
             private global::System.Data.DataColumn columnCodigo;
             
-            private global::System.Data.DataColumn columnCodigoA;
-            
             private global::System.Data.DataColumn columnCantidad;
             
             private global::System.Data.DataColumn columnDescripcion;
@@ -1779,14 +1763,6 @@ namespace POS {
             public global::System.Data.DataColumn CodigoColumn {
                 get {
                     return this.columnCodigo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CodigoAColumn {
-                get {
-                    return this.columnCodigoA;
                 }
             }
             
@@ -1859,11 +1835,10 @@ namespace POS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public detallesRow AdddetallesRow(string Codigo, string CodigoA, string Cantidad, string Descripcion, string Numero, string Precio) {
+            public detallesRow AdddetallesRow(string Codigo, string Cantidad, string Descripcion, string Numero, string Precio) {
                 detallesRow rowdetallesRow = ((detallesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Codigo,
-                        CodigoA,
                         Cantidad,
                         Descripcion,
                         Numero,
@@ -1891,7 +1866,6 @@ namespace POS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnCodigo = base.Columns["Codigo"];
-                this.columnCodigoA = base.Columns["CodigoA"];
                 this.columnCantidad = base.Columns["Cantidad"];
                 this.columnDescripcion = base.Columns["Descripcion"];
                 this.columnNumero = base.Columns["Numero"];
@@ -1903,8 +1877,6 @@ namespace POS {
             private void InitClass() {
                 this.columnCodigo = new global::System.Data.DataColumn("Codigo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCodigo);
-                this.columnCodigoA = new global::System.Data.DataColumn("CodigoA", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCodigoA);
                 this.columnCantidad = new global::System.Data.DataColumn("Cantidad", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCantidad);
                 this.columnDescripcion = new global::System.Data.DataColumn("Descripcion", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2648,22 +2620,6 @@ namespace POS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string CodigoA {
-                get {
-                    try {
-                        return ((string)(this[this.tableProductos.CodigoAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CodigoA\' de la tabla \'Productos\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProductos.CodigoAColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Descripcion {
                 get {
                     try {
@@ -2744,17 +2700,17 @@ namespace POS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Identificador {
+            public string Costo {
                 get {
                     try {
-                        return ((string)(this[this.tableProductos.IdentificadorColumn]));
+                        return ((string)(this[this.tableProductos.CostoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Identificador\' de la tabla \'Productos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Costo\' de la tabla \'Productos\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableProductos.IdentificadorColumn] = value;
+                    this[this.tableProductos.CostoColumn] = value;
                 }
             }
             
@@ -2768,18 +2724,6 @@ namespace POS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetCodigoNull() {
                 this[this.tableProductos.CodigoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCodigoANull() {
-                return this.IsNull(this.tableProductos.CodigoAColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCodigoANull() {
-                this[this.tableProductos.CodigoAColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2844,14 +2788,14 @@ namespace POS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsIdentificadorNull() {
-                return this.IsNull(this.tableProductos.IdentificadorColumn);
+            public bool IsCostoNull() {
+                return this.IsNull(this.tableProductos.CostoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetIdentificadorNull() {
-                this[this.tableProductos.IdentificadorColumn] = global::System.Convert.DBNull;
+            public void SetCostoNull() {
+                this[this.tableProductos.CostoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2882,22 +2826,6 @@ namespace POS {
                 }
                 set {
                     this[this.tabledetalles.CodigoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string CodigoA {
-                get {
-                    try {
-                        return ((string)(this[this.tabledetalles.CodigoAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CodigoA\' de la tabla \'detalles\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabledetalles.CodigoAColumn] = value;
                 }
             }
             
@@ -2975,18 +2903,6 @@ namespace POS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetCodigoNull() {
                 this[this.tabledetalles.CodigoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCodigoANull() {
-                return this.IsNull(this.tabledetalles.CodigoAColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCodigoANull() {
-                this[this.tabledetalles.CodigoAColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

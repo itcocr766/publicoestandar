@@ -56,17 +56,22 @@ namespace POS.productosprincipal
         {
             try
             {
-                if ((!string.IsNullOrEmpty(textBox2.Text) || !string.IsNullOrEmpty(textBox2.Text))&&
+                if (!string.IsNullOrEmpty(textBox2.Text)&&
 
 
                     !string.IsNullOrEmpty(richTextBox1.Text) && !string.IsNullOrEmpty(comboBox1.Text)&&
                     !string.IsNullOrEmpty(textBox3.Text)&& !string.IsNullOrEmpty(textBox4.Text)&&
-                    !string.IsNullOrEmpty(textBox5.Text))
+                    !string.IsNullOrEmpty(textBox5.Text)&&!string.IsNullOrEmpty(textBox1.Text))
                 {
                     using (var mysql = new Mysql())
                     {
                         mysql.conexion();
-                        mysql.cadenasql = "INSERT INTO `items`(`Codigo`, `Descripcion`, `Precio`, `Cantidad`, `Categoria`, `Impuesto`) VALUES ('"+textBox2.Text+"','"+richTextBox1.Text+"','"+double.Parse(textBox3.Text).ToString("0.00000000", CultureInfo.InvariantCulture)+"','"+ double.Parse(textBox4.Text).ToString("0.00000000", CultureInfo.InvariantCulture) + "','"+textBox5.Text+"','"+comboBox1.Text+"')";
+                        mysql.cadenasql = "INSERT INTO `items`(`Codigo`, `Descripcion`, `Precio`, `Cantidad`, `Categoria`, `Impuesto`,`Costo`) VALUES " +
+                            "('"+textBox2.Text+"','"+richTextBox1.Text+"'," +
+                            "'"+double.Parse(textBox3.Text).ToString("0.00000000", CultureInfo.InvariantCulture)+"'," +
+                            "'"+ double.Parse(textBox4.Text).ToString("0.00000000", CultureInfo.InvariantCulture) + "'," +
+                            "'"+textBox5.Text+"','"+comboBox1.Text+"'," +
+                            "'"+double.Parse(textBox1.Text).ToString("0.00000000",CultureInfo.InvariantCulture)+"')";
                         mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
                         mysql.comando.ExecuteNonQuery();
                         mysql.Dispose();
@@ -88,7 +93,7 @@ namespace POS.productosprincipal
             catch (MySqlException myse)
             {
                 MessageBox.Show("Parece que algo falló al intentar guardar en la base de datos.\n" +
-                    "Por favor verifique que no este ingresando valores repetidos o existentes o comuniquese con el administrador del sistema","Datos incorrectos",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    "Por favor verifique que no este ingresando valores repetidos o existentes o comuniquese con el administrador del sistema"+myse.Message,"Datos incorrectos",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             }
             catch (Exception exec)
             {
@@ -253,6 +258,18 @@ namespace POS.productosprincipal
             else
             {
                 e.Handled = false;
+            }
+        }
+
+        private void textBox1_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar) || char.IsControl(e.KeyChar) || e.KeyChar == '.')
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
             }
         }
     }
