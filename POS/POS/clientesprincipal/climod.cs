@@ -206,7 +206,14 @@ namespace POS.clientesprincipal
                         telefono.Text = mysql.lector["Telefono"].ToString();
                         correo.Text = mysql.lector["Correo"].ToString();
                         direccion.Text = mysql.lector["Direccion"].ToString();
-                      
+                        if (mysql.lector["Estado"].ToString()=="1")
+                        {
+                            comboBox1.Text = "Activo";
+                        }
+                        else
+                        {
+                            comboBox1.Text = "Inactivo";
+                        }
 
                     }
                     mysql.Dispose();
@@ -225,43 +232,47 @@ namespace POS.clientesprincipal
 
         private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
         {
-            try
-            {
-                if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
-                {
-                    using (var mysql = new Mysql())
-                    {
-                        mysql.conexion();
-                        mysql.cadenasql = "select * from clientes where Cedula='" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Estado='1'";
-                        mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
-                        mysql.lector = mysql.comando.ExecuteReader();
-                        while (mysql.lector.Read())
-                        {
-                            nombre.Text = mysql.lector["Nombre"].ToString();
-                            telefono.Text = mysql.lector["Descripcion"].ToString();
-                            correo.Text = mysql.lector["Correo"].ToString();
-                            direccion.Text = mysql.lector["Direccion"].ToString();
-                           
-
-                        }
-                        mysql.Dispose();
-                    }
-
-                }
-
-
-
-            }
-            catch (Exception excep)
-            {
-
-                Mensaje.Error(excep, "102");
-            }
+            
         }
 
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode==Keys.Up||e.KeyCode==Keys.Down)
+            {
+                try
+                {
+                    if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
+                    {
+                        using (var mysql = new Mysql())
+                        {
+                            mysql.conexion();
+                            mysql.cadenasql = "select * from clientes where Cedula='" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Estado='1'";
+                            mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
+                            mysql.lector = mysql.comando.ExecuteReader();
+                            while (mysql.lector.Read())
+                            {
+                                nombre.Text = mysql.lector["Nombre"].ToString();
+                                telefono.Text = mysql.lector["Telefono"].ToString();
+                                correo.Text = mysql.lector["Correo"].ToString();
+                                direccion.Text = mysql.lector["Direccion"].ToString();
 
+
+                            }
+                            mysql.Dispose();
+                        }
+
+                    }
+
+
+
+                }
+                catch (Exception excep)
+                {
+
+                    Mensaje.Error(excep, "102");
+                }
+            }
+            
         }
 
         private void cedula_KeyPress(object sender, KeyPressEventArgs e)
@@ -304,11 +315,11 @@ namespace POS.clientesprincipal
         {
             if (char.IsControl(e.KeyChar) || char.IsNumber(e.KeyChar))
             {
-                e.Handled = true;
+                e.Handled = false;
             }
             else
             {
-                e.Handled = false;
+                e.Handled = true;
             }
         }
 

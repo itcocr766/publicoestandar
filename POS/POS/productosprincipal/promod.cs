@@ -114,7 +114,7 @@ namespace POS.productosprincipal
                                 textBox1.Text = mysql.lector["Cantidad"].ToString();
                                 textBox2.Text = mysql.lector["Precio"].ToString();
                                 textBox3.Text = mysql.lector["Categoria"].ToString();
-
+                                textBox4.Text = mysql.lector["Costo"].ToString();
 
 
                             }
@@ -140,37 +140,7 @@ namespace POS.productosprincipal
 
         private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
         {
-            try
-            {
-                if (e.KeyCode==Keys.Up ||e.KeyCode==Keys.Down)
-                {
-                    using (var mysql = new Mysql())
-                    {
-                        mysql.conexion();
-                        mysql.cadenasql = "select * from items where Codigo='" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'";
-                        mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
-                        mysql.lector = mysql.comando.ExecuteReader();
-                        while (mysql.lector.Read())
-                        {
-                            descripcion.Text = mysql.lector["Descripcion"].ToString();
-                           
-                            impuesto.Text = mysql.lector["Impuesto"].ToString();
-                           
-
-                        }
-                        mysql.Dispose();
-                    }
-
-                }
-              
-
-
-            }
-            catch (Exception excep)
-            {
-
-                Mensaje.Error(excep, "102");
-            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -181,7 +151,8 @@ namespace POS.productosprincipal
                     if (!string.IsNullOrEmpty(dataGridView1.CurrentRow.Cells[0].Value.ToString()) &&
                     !string.IsNullOrEmpty(descripcion.Text) && !string.IsNullOrEmpty(impuesto.Text) &&
                     !string.IsNullOrEmpty(textBox1.Text) &&
-                    !string.IsNullOrEmpty(textBox2.Text) && !string.IsNullOrEmpty(textBox3.Text)
+                    !string.IsNullOrEmpty(textBox2.Text) && !string.IsNullOrEmpty(textBox3.Text)&&
+                    !string.IsNullOrEmpty(textBox4.Text)
                    )
                     {
                         using (var mysql = new Mysql())
@@ -190,7 +161,7 @@ namespace POS.productosprincipal
                             if (!string.IsNullOrEmpty(dataGridView1.CurrentRow.Cells[0].Value.ToString()))
                             {
                                 mysql.cadenasql = "update items set Descripcion='" + descripcion.Text.Trim() + "'" +
-                               ",Impuesto='" + impuesto.Text.Trim() + "',Cantidad='" + double.Parse(textBox1.Text).ToString("0.00000000", CultureInfo.InvariantCulture) + "',Precio='" + double.Parse(textBox2.Text).ToString("0.00000000", CultureInfo.InvariantCulture) + "',Categoria='" + textBox3.Text + "'  where Codigo='" + dataGridView1.CurrentRow.Cells[0].Value + "'";
+                               ",Impuesto='" + impuesto.Text.Trim() + "',Cantidad='" + double.Parse(textBox1.Text).ToString("0.00000000", CultureInfo.InvariantCulture) + "',Precio='" + double.Parse(textBox2.Text).ToString("0.00000000", CultureInfo.InvariantCulture) + "',Categoria='" + textBox3.Text + "',Costo='"+double.Parse(textBox4.Text).ToString("0.00000000",CultureInfo.InvariantCulture)+"'  where Codigo='" + dataGridView1.CurrentRow.Cells[0].Value + "'";
 
                             }
                            
@@ -271,7 +242,7 @@ namespace POS.productosprincipal
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsNumber(e.KeyChar) || char.IsControl(e.KeyChar))
+            if (char.IsNumber(e.KeyChar) || char.IsControl(e.KeyChar) || e.KeyChar == '.')
             {
                 e.Handled = false;
             }
@@ -302,6 +273,58 @@ namespace POS.productosprincipal
             else
             {
                 e.Handled = false;
+            }
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Up||e.KeyCode==Keys.Down)
+            {
+                try
+                {
+                    if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
+                    {
+                        using (var mysql = new Mysql())
+                        {
+                            mysql.conexion();
+                            mysql.cadenasql = "select * from items where Codigo='" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'";
+                            mysql.comando = new MySqlCommand(mysql.cadenasql, mysql.con);
+                            mysql.lector = mysql.comando.ExecuteReader();
+                            while (mysql.lector.Read())
+                            {
+                                descripcion.Text = mysql.lector["Descripcion"].ToString();
+
+                                impuesto.Text = mysql.lector["Impuesto"].ToString();
+                                textBox1.Text = mysql.lector["Precio"].ToString();
+                                textBox2.Text= mysql.lector["Cantidad"].ToString();
+                                textBox3.Text = mysql.lector["Categoria"].ToString();
+                                textBox4.Text = mysql.lector["Costo"].ToString();
+                            }
+                            mysql.Dispose();
+                        }
+
+                    }
+
+
+
+                }
+                catch (Exception excep)
+                {
+
+                    Mensaje.Error(excep, "102");
+                }
+            }
+        }
+
+        private void textBox4_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar) || char.IsControl(e.KeyChar)||e.KeyChar=='.')
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
             }
         }
     }

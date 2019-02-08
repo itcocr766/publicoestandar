@@ -3,13 +3,13 @@
           SAN JOSE
           SAN JOSE
                25736037
-    Fecha:     1/22/2019 9:59:31 AM
+    Fecha:     2/8/2019 4:20:54 PM
                       No.Factura:
-             00400001040000000994
+             00100001040000001001
                         Clave:
-5062201190031026714690040
-0001040000000994171246031
-                Comprobante: 0
+5060802190031026714690010
+0001040000001001120461226
+                Comprobante: 141
 Tipo de Comprobante:
 Tiquete Electrónico
         Tipo de pago : Efectivo
@@ -21,36 +21,18 @@ Cantidad           Precio
                Artículo
 -----------------------------------------------
 
-      1                        ₡5000
-Blower y Plancha
-         (0%)  Descuento =   ₡0.00
-      1                        ₡7500
-Corte, Blower y Plancha
-         (0%)  Descuento =   ₡0.00
-      1                        ₡2000
-Dep. Bigote
-         (0%)  Descuento =   ₡0.00
-      1                        ₡8500
-Corte, Blower y Plancha
-         (0%)  Descuento =   ₡0.00
-      1                        ₡3000
-Disminucion Barba
-         (0%)  Descuento =   ₡0.00
-      1                        ₡2000
-Disminucion Barba
-         (0%)  Descuento =   ₡0.00
-      1                        ₡3500
-Disminucion Barba
+      1,00                        ₡22
+wq
          (0%)  Descuento =   ₡0.00
          (E)=Exento            (G)=Gravado
-ARTICULOS=                      7
-SUBTOTAL=                      ₡30,522.12
-I.V.A.=                               ₡977.88
+ARTICULOS=                      1
+SUBTOTAL=                      ₡194,690.00
+I.V.A.=                               ₡253.10
 DESCUENTO=                   ₡0.00
-TOTAL=                             ₡31,500.00
+TOTAL=                             ₡219,999.70
 ------------------------------MONTO-------------
-PAGA CON:                        ₡7,893,474,394
-VUELTO=                           ₡-7,893,442,894.00
+PAGA CON:                        ₡3,242,312
+VUELTO=                           ₡-3,022,312.30
            ARTICULOS CON I.V.I.
            VENDEDOR : VENDEDOR
 ----Autorizada mediante resolución--------
